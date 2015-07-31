@@ -1,5 +1,5 @@
 {
-  "name": "Content-Thread-website",
+  "name": "Starter website",
   "version": "1.0.0",
   "devDependencies": {
     "browser-sync": "^2.8.1",
@@ -15,6 +15,6 @@
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-ruby-sass": "^1.0.5",
-    "gulp-uglify": "^1.2.0",
+    "gulp-uglify": "^1.2.0"
   }
 }
