@@ -11,15 +11,20 @@ $ gem install sass
 $ npm install —g gulp
 ```
 
-##Build
+##Build & Serve
 Clone the project and install dependencies. From inside the project directory, run:
 
 ```
 $ npm install
 ```
 
-To build and serve the project, run:
+To build, run:
 
+```
+$ gulp
+```
+
+and then serve the project
 ```
 $ gulp serve
 ```
