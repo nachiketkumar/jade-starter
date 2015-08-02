@@ -11,16 +11,18 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     browserSync = require('browser-sync').create(),
     del = require('del'),
-  	jade = require('gulp-jade');
+    jade = require('gulp-jade'),
+    sourcemaps = require('gulp-sourcemaps');
 
 // Styles
 gulp.task('styles', function() {
   return sass('src/styles/main.scss', { style: 'expanded' })
     .pipe(autoprefixer('last 2 version'))
-    .pipe(gulp.dest('dist/assets/css'))
+    .pipe(gulp.dest('dist/assets/styles'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
-    .pipe(gulp.dest('dist/assets/css'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/assets/styles'))
     .pipe(notify({ message: 'Styles task complete' }));
 });
 
@@ -57,12 +59,12 @@ gulp.task('images', function() {
 
 // Clean
 gulp.task('clean', function(cb) {
-    del(['dist/assets/css', 'dist/assets/scripts', 'dist/*.html', 'dist/assets/images'], cb)
+    del(['dist/assets/styles/*', 'dist/assets/scripts/*', 'dist/*.html', 'dist/assets/images/*', '!dist/assets/styles/.gitignore', '!dist/assets/scripts/.gitignore', '!dist/assets/images/.gitignore'], cb)
 });
 
 // Default task
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'scripts', 'jade', 'images');
+    gulp.start(['styles', 'scripts', 'jade', 'images']);
 });
 
 // Watch
