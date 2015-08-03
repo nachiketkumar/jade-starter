@@ -41,7 +41,7 @@ gulp.task('scripts', function() {
 
 // Converts Jade to HTML
 gulp.task('jade', function() {
-  return gulp.src('src/*.jade')
+  return gulp.src('src/**/*.jade')
     .pipe(jade({
         pretty: true,  // uncompressed
     }))
@@ -77,7 +77,7 @@ gulp.task('watch', function() {
   gulp.watch('src/scripts/**/*.js', ['scripts']);
 
   // Watch Jade files
-  gulp.watch('src/*.jade', ['jade']);
+  gulp.watch('src/**/*.jade', ['jade']);
   
   // Watch image files
   gulp.watch('src/images/**/*', ['images']);
@@ -98,7 +98,7 @@ gulp.task('serve', ['styles'], function() {
     gulp.watch('src/scripts/**/*.js', ['scripts']);
 
     // Watch Jade files
-    gulp.watch('src/*.jade', ['jade']);
+    gulp.watch('src/**/*.jade', ['jade']);
     
     // Watch image files
     gulp.watch('src/images/**/*', ['images']);
