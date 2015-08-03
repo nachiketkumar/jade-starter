@@ -1,21 +1,17 @@
-doctype html
-html(lang="en")
-  head
-    title= pageTitle
-    link(rel='stylesheet' href='assets/styles/main.css')
-    script(src='assets/js/main.js')
-      
+extends _layouts/main
 
-  body
+block title
+  title Website Name | Home
+
+block content      
+  #container.col
     h1 Jade - node template engine
-    #container.col
-      if youAreUsingJade
-        p You are amazing
-      else
-        p Get on it! works? Yes! test
-        img(src="assets/images/box.png", alt="")
-      p.
-        Jade is a terse and simple templating language with a
-        strong focus on performance and powerful features.
+    if youAreUsingJade
+      p You are amazing
+    else
+      p Get on it! works? Yes! testing.
+    p.
+      Jade is a terse and simple templating language with a
+      strong focus on performance and powerful features.
 
-      a(href="about.html") about
+    a(href="about.html") about
